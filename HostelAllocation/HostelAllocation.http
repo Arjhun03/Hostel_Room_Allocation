@@ -1,0 +1,41 @@
+@HostelAllocation_HostAddress = http://localhost:5007
+
+### 1. Get all rooms
+GET {{HostelAllocation_HostAddress}}/api/rooms
+Accept: application/json
+
+### 2. Get available rooms only
+GET {{HostelAllocation_HostAddress}}/api/rooms?availableOnly=true
+Accept: application/json
+
+### 3. Get room by ID
+GET {{HostelAllocation_HostAddress}}/api/rooms/1
+Accept: application/json
+
+### 4. Create a new room
+POST {{HostelAllocation_HostAddress}}/api/rooms
+Content-Type: application/json
+
+{
+  "roomNumber": "B202",
+  "roomType": "Single",
+  "capacity": 1,
+  "occupiedBeds": 0,
+  "monthlyFee": 5500
+}
+
+### 5. Update room
+PUT {{HostelAllocation_HostAddress}}/api/rooms/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "roomNumber": "A101",
+  "roomType": "Shared",
+  "capacity": 4,
+  "occupiedBeds": 3,
+  "monthlyFee": 3500
+}
+
+### 6. Delete room
+DELETE {{HostelAllocation_HostAddress}}/api/rooms/2
